@@ -1,6 +1,7 @@
 import discord
 
-TOKEN = 'ENTER YOUR TOKEN HERE'
+TOKEN = 'INSERT YOUR TOKEN HERE'
+
 
 intents = discord.Intents.default()
 intents.message_content = True #v2
@@ -24,15 +25,24 @@ async def on_message(message):
     
     if message.channel.name == 'welcome':
         if user_message.lower() == 'hello':
-            await message.channel.send(f"What's up {username}!")
+            await message.channel.send(f"What's up {username}! 🏀")
             return
         
         elif user_message.lower() == "bye":
-            await message.channel.send(f"See ya later, {username}!")
+            await message.channel.send(f"See ya later, @{username}! 👋")
             return
-    
+        
+    if message.channel.name == "mavericks":
+        if user_message.lower() == "Mavericks":
+            await message.channel.send("#MFFL")
+            return 
+        
     if user_message.lower() == '!anywhere':
-        await message.channel.send("I see you! Talk that talk!")
+        await message.channel.send("What's your basketball hot take this season? 👀" )
+        return
+    
+    if user_message.lower() == 'help':
+        await message.channel.send(f"Please refer to the #help channel, @{username}")
         return
         
 
